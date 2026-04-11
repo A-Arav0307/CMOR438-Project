@@ -8,6 +8,8 @@ Machine learning implementations using the California Housing dataset from Kaggl
 Predicting median house value ($) from census block group features.
 
 - **1. Linear Regression** - Baseline linear model with gradient descent, normal equation, and variations (Ridge, LASSO, Elastic Net)
+- **2. Gradient Descent** - Deep dive into batch, stochastic, and mini-batch gradient descent with learning rate analysis
+- **3. SVM Regression** - Support Vector Regression with linear, polynomial, RBF, and sigmoid kernels
 
 ### 2. Classification
 *(Coming soon)*
