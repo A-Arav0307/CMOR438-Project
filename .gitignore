@@ -36,5 +36,11 @@ Thumbs.db
 htmlcov/
 .pytest_cache/
 
+# Cloned reference repos
+Machine-Learning-and-Data-Analytics/
+
+# Claude memory
+.claude/
+
 # Stray artifacts
 https:/
