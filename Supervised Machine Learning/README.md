@@ -19,3 +19,4 @@ Target: `median_house_value > median` (binary).
 - **4. Decision Tree** — depth sweep, criterion, feature importance, tree plot
 - **5. Random Forest** — n_estimators/depth sweeps, OOB, feature importance, ROC
 - **6. Ensemble Methods** — Bagging, AdaBoost, Gradient Boosting, Voting
+- **7. K-Nearest Neighbors** — k sweep, distance metrics, weighting, from-scratch, decision boundary, ROC
