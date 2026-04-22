@@ -1,20 +1,17 @@
 # Supervised Machine Learning
 
-Machine learning implementations using the California Housing dataset from Kaggle (20,640 samples, 10 features).
+California housing dataset.
 
-## Structure
+## Regression
+Target: `median_house_value` (continuous).
 
-### 1. Regression
-Predicting median house value ($) from census block group features.
+- **1. Linear Regression** — normal equation + GD, Ridge, LASSO, Elastic Net
+- **2. Gradient Descent** — learning rate sweep, batch/SGD/mini-batch
+- **3. SVM Regression** — linear, poly, RBF, sigmoid kernels
 
-- **1. Linear Regression** - Baseline linear model with gradient descent, normal equation, and variations (Ridge, LASSO, Elastic Net)
-- **2. Gradient Descent** - Deep dive into batch, stochastic, and mini-batch gradient descent with learning rate analysis
-- **3. SVM Regression** - Support Vector Regression with linear, polynomial, RBF, and sigmoid kernels
+## Classification
+Target: `median_house_value > median` (binary).
 
-### 2. Classification
-*(Coming soon)*
-
-## Dataset
-- **Source**: [California Housing Prices (Kaggle)](https://www.kaggle.com/datasets/camnugent/california-housing-prices)
-- **Features**: longitude, latitude, housing_median_age, total_rooms, total_bedrooms, population, households, median_income, ocean_proximity
-- **Target**: median_house_value
+- **1. Perceptron** — sklearn baseline, learning rate sweep, from-scratch, decision boundary
+- **2. Logistic Regression** — baseline, C sweep, from-scratch GD, ROC, coefficients
+- **3. Multilayer Perceptron** — baseline, architecture/activation sweeps, from-scratch, ROC
