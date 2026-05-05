@@ -1,3 +1,4 @@
+"""Ensemble methods: Bagging, AdaBoost, Gradient Boosting, and Voting."""
 import numpy as np
 
 from rice_ml.supervised_ml.decision_tree import DecisionTreeClassifier
@@ -5,6 +6,14 @@ from rice_ml.supervised_ml.regression_tree import RegressionTree
 
 
 class BaggingClassifier:
+    """Bagged decision trees (bootstrap + majority vote).
+
+    Parameters:
+        n_estimators : number of bagged trees
+        max_depth : maximum depth per tree
+        seed : RNG seed for the bootstraps
+    """
+
     def __init__(self, n_estimators=50, max_depth=None, seed=42):
         if n_estimators < 1:
             raise ValueError("n_estimators must be >= 1")
@@ -43,6 +52,13 @@ class BaggingClassifier:
 
 
 class AdaBoostClassifier:
+    """AdaBoost with depth-1 decision stumps as the base learner (binary only).
+
+    Parameters:
+        n_estimators : number of boosting rounds
+        seed : RNG seed for the weighted bootstrap each round
+    """
+
     def __init__(self, n_estimators=50, seed=42):
         if n_estimators < 1:
             raise ValueError("n_estimators must be >= 1")
@@ -97,6 +113,15 @@ class AdaBoostClassifier:
 
 
 class GradientBoostingClassifier:
+    """Gradient boosting for binary classification using regression trees on log-odds residuals.
+
+    Parameters:
+        n_estimators : number of boosting rounds
+        lr : shrinkage applied to each tree's contribution
+        max_depth : depth of each regression tree
+        seed : RNG seed for tie-breaking in the trees
+    """
+
     def __init__(self, n_estimators=100, lr=0.1, max_depth=3, seed=42):
         if n_estimators < 1:
             raise ValueError("n_estimators must be >= 1")
@@ -146,6 +171,13 @@ class GradientBoostingClassifier:
 
 
 class VotingClassifier:
+    """Combine several fitted classifiers by hard or soft voting.
+
+    Parameters:
+        estimators : list of (name, estimator) tuples
+        voting : 'hard' for majority vote on predicted labels, 'soft' to average predicted probabilities
+    """
+
     def __init__(self, estimators, voting="hard"):
         if voting not in ("hard", "soft"):
             raise ValueError("voting must be 'hard' or 'soft'")

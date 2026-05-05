@@ -1,7 +1,15 @@
+"""DBSCAN — density-based clustering with brute-force region queries."""
 import numpy as np
 
 
 class DBSCAN:
+    """Density-based spatial clustering. Labels each point as a cluster id or -1 (noise).
+
+    Parameters:
+        eps : neighborhood radius
+        min_samples : minimum neighbors (including self) for a point to count as core
+    """
+
     def __init__(self, eps=0.5, min_samples=5):
         if eps <= 0:
             raise ValueError("eps must be > 0")

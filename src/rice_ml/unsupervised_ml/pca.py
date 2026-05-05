@@ -1,7 +1,14 @@
+"""Principal component analysis via covariance eigendecomposition."""
 import numpy as np
 
 
 class PCA:
+    """Project data onto its top principal components.
+
+    Parameters:
+        n_components : number of principal components to retain
+    """
+
     def __init__(self, n_components):
         if n_components < 1:
             raise ValueError("n_components must be >= 1")

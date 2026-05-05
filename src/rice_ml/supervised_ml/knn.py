@@ -1,7 +1,14 @@
+"""Brute-force k-nearest-neighbors classifier."""
 import numpy as np
 
 
 class KNN:
+    """k-NN classifier using Euclidean distance and majority vote.
+
+    Parameters:
+        k : number of neighbors to consult per prediction
+    """
+
     def __init__(self, k=5):
         if k < 1:
             raise ValueError("k must be >= 1")

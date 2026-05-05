@@ -1,3 +1,4 @@
+"""Evaluation metrics for classification and regression."""
 import numpy as np
 
 
@@ -26,6 +27,7 @@ def mean_absolute_error(y_true, y_pred):
 
 
 def r2_score(y_true, y_pred):
+    """Coefficient of determination."""
     y_true = np.asarray(y_true, dtype=float)
     y_pred = np.asarray(y_pred, dtype=float)
     if len(y_true) != len(y_pred):
@@ -36,6 +38,12 @@ def r2_score(y_true, y_pred):
 
 
 def confusion_matrix(y_true, y_pred, labels=None):
+    """Confusion matrix where rows are true labels and columns are predictions.
+
+    Parameters:
+        y_true, y_pred : true and predicted label vectors
+        labels : optional explicit ordering of labels for the rows/cols
+    """
     y_true = np.asarray(y_true)
     y_pred = np.asarray(y_pred)
     if len(y_true) != len(y_pred):

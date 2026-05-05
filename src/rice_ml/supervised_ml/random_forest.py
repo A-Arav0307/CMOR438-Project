@@ -1,9 +1,21 @@
+"""Random forest classifier — bootstrap aggregation with feature subsampling."""
 import numpy as np
 
 from rice_ml.supervised_ml.decision_tree import DecisionTreeClassifier
 
 
 class RandomForestClassifier:
+    """Forest of decision trees fit on bootstrapped samples and feature subsets.
+
+    Parameters:
+        n_estimators : number of trees in the forest
+        max_depth : maximum depth per tree
+        max_features : 'sqrt', 'log2', an int, or None (use all features)
+        min_samples_split : minimum samples a node needs to be split
+        criterion : 'gini' or 'entropy'
+        seed : RNG seed for bootstraps and feature subsamples
+    """
+
     def __init__(self, n_estimators=100, max_depth=None, max_features="sqrt",
                  min_samples_split=2, criterion="gini", seed=42):
         if n_estimators < 1:

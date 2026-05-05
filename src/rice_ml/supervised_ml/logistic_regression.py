@@ -1,3 +1,4 @@
+"""Logistic regression with batch gradient descent on the cross-entropy loss."""
 import numpy as np
 
 
@@ -6,6 +7,14 @@ def sigmoid(z):
 
 
 class LogisticRegression:
+    """Binary logistic regression trained by gradient descent.
+
+    Parameters:
+        lr : learning rate for the GD update
+        epochs : number of full-batch passes
+        seed : RNG seed for the initial weights
+    """
+
     def __init__(self, lr=0.1, epochs=500, seed=42):
         self.lr = lr
         self.epochs = epochs

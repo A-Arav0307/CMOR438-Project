@@ -1,3 +1,4 @@
+"""One-hidden-layer MLP with ReLU hidden + sigmoid output, trained by mini-batch SGD."""
 import numpy as np
 
 
@@ -14,6 +15,16 @@ def relu_grad(z):
 
 
 class MLP:
+    """Single-hidden-layer neural net for binary classification.
+
+    Parameters:
+        hidden : number of units in the hidden layer
+        lr : learning rate for SGD
+        epochs : number of passes over the training data
+        batch : mini-batch size
+        seed : RNG seed for weight initialization
+    """
+
     def __init__(self, hidden=32, lr=0.05, epochs=50, batch=64, seed=42):
         self.hidden = hidden
         self.lr = lr

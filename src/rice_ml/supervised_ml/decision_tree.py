@@ -1,3 +1,4 @@
+"""CART-style decision tree classifier with gini or entropy splits."""
 import numpy as np
 
 
@@ -29,6 +30,15 @@ class _Node:
 
 
 class DecisionTreeClassifier:
+    """Decision tree for binary or multiclass classification.
+
+    Parameters:
+        max_depth : maximum tree depth, or None to grow until pure
+        min_samples_split : minimum samples a node needs to be considered for splitting
+        criterion : 'gini' or 'entropy' impurity
+        seed : RNG seed (unused in fit but kept for API consistency)
+    """
+
     def __init__(self, max_depth=None, min_samples_split=2, criterion="gini", seed=42):
         if criterion not in ("gini", "entropy"):
             raise ValueError("criterion must be 'gini' or 'entropy'")

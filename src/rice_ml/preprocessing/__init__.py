@@ -1,7 +1,9 @@
+"""Preprocessing helpers: feature scaling and train/test splitting."""
 import numpy as np
 
 
 def standardize(X):
+    """Z-score each column to zero mean and unit variance."""
     X = np.asarray(X, dtype=float)
     mu = X.mean(axis=0)
     sigma = X.std(axis=0)
@@ -10,6 +12,7 @@ def standardize(X):
 
 
 def minmax_scale(X):
+    """Rescale each column to the [0, 1] range."""
     X = np.asarray(X, dtype=float)
     lo = X.min(axis=0)
     hi = X.max(axis=0)
@@ -18,6 +21,14 @@ def minmax_scale(X):
 
 
 def train_test_split(X, y=None, test_size=0.25, shuffle=True, seed=42):
+    """Random split of (X, y) into training and test sets.
+
+    Parameters:
+        X, y : feature matrix and optional label vector
+        test_size : fraction of samples reserved for the test set
+        shuffle : whether to shuffle indices before splitting
+        seed : RNG seed for reproducibility
+    """
     X = np.asarray(X)
     n = len(X)
     rng = np.random.default_rng(seed)

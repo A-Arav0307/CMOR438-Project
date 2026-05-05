@@ -1,7 +1,16 @@
+"""Perceptron — mistake-driven binary linear classifier."""
 import numpy as np
 
 
 class Perceptron:
+    """Binary perceptron with online updates on misclassifications.
+
+    Parameters:
+        eta : learning rate for the weight update
+        epochs : number of passes over the training data
+        seed : RNG seed for the initial weights
+    """
+
     def __init__(self, eta=0.01, epochs=50, seed=42):
         self.eta = eta
         self.epochs = epochs

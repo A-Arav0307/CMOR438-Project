@@ -1,3 +1,4 @@
+"""CART-style regression tree using variance reduction at each split."""
 import numpy as np
 
 
@@ -19,6 +20,14 @@ def _var(y):
 
 
 class RegressionTree:
+    """Regression tree fit by greedy variance-reduction splits.
+
+    Parameters:
+        max_depth : maximum tree depth, or None for no limit
+        min_samples_split : minimum samples a node needs to be split
+        seed : RNG seed (unused in fit but kept for API consistency)
+    """
+
     def __init__(self, max_depth=None, min_samples_split=2, seed=42):
         if min_samples_split < 2:
             raise ValueError("min_samples_split must be >= 2")

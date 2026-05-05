@@ -1,7 +1,17 @@
+"""Linear regression: closed-form normal equation or gradient descent."""
 import numpy as np
 
 
 class LinearRegression:
+    """Linear regression with intercept, fit by either method.
+
+    Parameters:
+        method : 'normal' for the closed-form solution, 'gd' for gradient descent
+        lr : learning rate (only used when method='gd')
+        epochs : number of GD iterations (only used when method='gd')
+        seed : RNG seed for the initial weights in GD
+    """
+
     def __init__(self, method="normal", lr=0.01, epochs=1000, seed=42):
         if method not in ("normal", "gd"):
             raise ValueError("method must be 'normal' or 'gd'")

@@ -1,7 +1,17 @@
+"""K-Means clustering with random initialization and Lloyd's algorithm."""
 import numpy as np
 
 
 class KMeans:
+    """K-Means cluster the input into k groups by minimizing within-cluster SSE.
+
+    Parameters:
+        k : number of clusters
+        max_iter : maximum number of assign/update rounds
+        tol : stop early when centroid shift falls below this
+        seed : RNG seed for the initial centroid pick
+    """
+
     def __init__(self, k=5, max_iter=100, tol=1e-6, seed=42):
         if k < 1:
             raise ValueError("k must be >= 1")

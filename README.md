@@ -32,9 +32,27 @@ pytest
 jupyter notebook
 ```
 
-Python 3.9+. The notebooks expect the `housing.csv` sitting next to them, which is already there.
+Python 3.9+. The notebooks expect `housing.csv` sitting next to them, which is already in each folder.
+
+## Using the package
+
+Every model follows the same `fit` / `predict` / `score` interface:
+
+```python
+from rice_ml.supervised_ml import LogisticRegression
+from rice_ml.preprocessing import standardize, train_test_split
+
+X = standardize(X)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, seed=42)
+
+clf = LogisticRegression(lr=0.1, epochs=500).fit(X_train, y_train)
+print(clf.score(X_test, y_test))
+```
+
+Every notebook in `notebooks/` does the same thing with a different model and on the housing data.
 
 ## Notes
 
-- `pyproject.toml` pins the package layout — `pythonpath = ["src"]` is what lets `from rice_ml.supervised_ml import Perceptron` resolve in the notebooks and tests.
+- `pyproject.toml` pins the package layout — `pythonpath = ["src"]` is what lets `from rice_ml.supervised_ml import Perceptron` resolve in notebooks and tests without `pip install`.
 - Tests use seeded numpy RNGs, so they're deterministic. If a run flakes, that's a real bug.
+- The notebooks compare each from-scratch model against a sklearn baseline. The from-scratch versions sometimes train on a subsample because their split / region-query loops aren't vectorized — that's a speed gap, not a correctness one.
