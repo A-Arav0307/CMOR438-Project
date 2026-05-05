@@ -8,9 +8,14 @@ Everything runs on the California housing dataset. The notebooks under `Supervis
 
 ```
 src/rice_ml/                    from-scratch implementations
-  supervised_ml/                  perceptron, logistic regression, MLP, KNN
-  unsupervised_ml/                PCA, KMeans
-  preprocessing/, measures/
+  supervised_ml/                  linear regression, logistic regression,
+                                  perceptron, MLP, KNN, decision tree,
+                                  regression tree, random forest,
+                                  bagging / AdaBoost / GBM / voting,
+                                  distance metrics
+  unsupervised_ml/                PCA, K-Means, DBSCAN
+  preprocessing/                  standardize, minmax_scale, train_test_split
+  measures/                       accuracy, MSE, MAE, R², confusion matrix
 tests/                          pytest suite for the src package
 Supervised Machine Learning/    notebooks (regression + classification)
 Unsupervised Machine Learning/  notebooks (PCA, K-Means, DBSCAN)
