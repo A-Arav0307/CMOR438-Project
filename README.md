@@ -2,7 +2,7 @@
 
 Coursework for CMOR 438 (Data Science and Machine Learning), Rice, Spring 2026.
 
-Everything runs on the California housing dataset. The notebooks under `Supervised Machine Learning/` and `Unsupervised Machine Learning/` are the assignments — each one walks through a model end to end (sklearn baseline, hyperparameter sweeps, from-scratch implementation, plots). The reusable bits live in `src/rice_ml/` so the notebooks aren't 800 lines of boilerplate.
+Everything runs on the California housing dataset. The notebooks under `notebooks/` are the assignments — each one walks through a model end to end (sklearn baseline, hyperparameter sweeps, from-scratch implementation, plots). The reusable bits live in `src/rice_ml/` so the notebooks aren't 800 lines of boilerplate.
 
 ## Layout
 
@@ -17,8 +17,9 @@ src/rice_ml/                    from-scratch implementations
   preprocessing/                  standardize, minmax_scale, train_test_split
   measures/                       accuracy, MSE, MAE, R², confusion matrix
 tests/                          pytest suite for the src package
-Supervised Machine Learning/    notebooks (regression + classification)
-Unsupervised Machine Learning/  notebooks (PCA, K-Means, DBSCAN)
+notebooks/
+  Supervised Machine Learning/    regression + classification
+  Unsupervised Machine Learning/  PCA, K-Means, DBSCAN
 ```
 
 The `Data_Science_and_Machine_Learning_Spring_2022/` and `Machine-Learning-and-Data-Analytics/` folders are reference material from prior offerings and aren't part of my work.
